@@ -1,0 +1,52 @@
+****<[ DISCLAIMER ]>****
+
+the scripts are released “as-is” without warranty of any kind. the scritps does not include any Cisco IOU/IOL binaries or other materials under Cisco NDA. I’m not responsible for what you do with my scripts. If you are not authorized you shouldn’t use Cisco IOU/IOL, I’m not a Cisco employee and I don’t own any Cisco IOU/IOL binaries or other materials under Cisco NDA.
+DO NOT ASK FOR, Cisco IOU, just like IOS, is copyrighted software that belongs to cisco Systems, Inc. Distribution of copyrighted software is a federal crime in the United States. I cannot speak regarding the laws of other countries.
+I took a code already done, I just modified it for specials needs. 
+
+
+****<[HOW TO USE THEM]>**** 
+
+from a user mode you just type in the terminal ioustart and the isntance you want to run (previously defined on the NETMAP file). You can also run intances for the iou2net.pl script using a @ and the instance.
+for example.
+
+the sintax is the next ./ioustart INSTANCE+ [@INSTANCE]
+where 'INSTANCE' is a numeric value between 1 and 1024 as IOU requires.
+
+the '@' is always after (not necesary beside it) the iou instance is going to run with, if not iou2net.pl it going to compĺain.
+
+Real examples are like this.
+ 
+user@user$ ./ioustart 1
+Run a iou instance 1
+
+user@user$ ./ioustart 2 3 5 8
+run iou instance 2 3 5 8
+
+user@user$ ./ioustart 1 2 @4 @7
+run iou instance 1 2 and run iou2net.pl for instance 4 and 7
+
+
+Also you can use the file called killIOU.sh to kill all the process running.
+just execute the sh file.
+user@user$ ./killIOU.sh
+
+
+****<[CONFIGURATION]>****
+This has been tested only for Ubuntu 12.10
+
+the configuration I use for the scritp to work
+
+the firts thing to do is make executable the files needed, in this case the iou images, the wrapper and the iou2net.pl and of course the ioustart.sh and killIOU.sh files.
+Use the command
+user@user$ sudo chmod +x 'AND THE FILE TO MAKE EXECUTABLE'
+
+After you make the files executables you need to make a symbolic link between your files and /sbin, in this way, you can execute the files from any directory in your system.
+example.
+user@user$ sudo ln -s /home/user/iou2net.pl ./iou2net.pl
+
+In the ioustart.sh file you must to modified the line that specify the IOU to use, with the one you have.
+
+things to improve.
+	*test it more.
+	*add ranges for run specifics instances.
