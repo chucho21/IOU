@@ -10,15 +10,15 @@ do
 	then
 		if [ $VAR -eq $VAR 2> /dev/null ]
 		then
-			echo $VAR "is a number"
+			#echo $VAR "is a number"
 			wrapper-linux -m i86bi_linux-adventerprisek9-ms-152-2-2-3T.bin -p $((7000 + $VAR)) -- $E $S $((1 * $VAR)) > /dev/null 2>&1 & echo $! > IOL$VAR.pid
 			sleep 3s
 		else
-			echo $VAR "is not a number"
+			#echo $VAR "is not a number"
 		fi
 	else
 		NUM=${VAR:1}
 		iou2net.pl -u $((30000 + $NUM)):$((30001 + $NUM)) - p $NUM > /dev/null 2>&1 & echo $! > IOL$NUM.pid
-		echo "arroba" $NUM		
+		#echo "arroba" $NUM		
 	fi
 done
