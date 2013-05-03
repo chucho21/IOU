@@ -17,22 +17,23 @@ the '@' is always after (not necesary beside it) the iou instance is going to ru
 
 Real examples are like this.
  
-user@user$ ./ioustart 1
+user@user$ ioustart.sh 1
 Run a iou instance 1
 
-user@user$ ./ioustart 2 3 5 8
+user@user$ ioustart.sh 2 3 5 8
 run iou instance 2 3 5 8
 
-user@user$ ./ioustart 1 2 @4 @7
+user@user$ ioustart.sh 1 2 @4 @7
 run iou instance 1 2 and run iou2net.pl for instance 4 and 7
 
 
 Also you can use the file called killIOU.sh to kill all the process running.
 just execute the sh file.
-user@user$ ./killIOU.sh
+user@user$ killIou.sh
 
 
 ****<[CONFIGURATION]>****
+
 This has been tested only for Ubuntu 12.10
 
 the configuration I use for the scritp to work
@@ -40,12 +41,13 @@ the configuration I use for the scritp to work
 the firts thing to do is make executable the files needed, in this case the iou images, the wrapper and the iou2net.pl and of course the ioustart.sh and killIOU.sh files.
 Use the command
 user@user$ sudo chmod +x 'AND THE FILE TO MAKE EXECUTABLE'
+user@user$ sudo chmod +x ioustart.sh
 
-After you make the files executables you need to make a symbolic link between your files and /sbin, in this way, you can execute the files from any directory in your system.
+After you make the files executables you need to make a symbolic link between your files and /sbin, in this way, you can execute the files from any directory in your system, including ioustart.sh and killIou.sh
 example.
 user@user$ sudo ln -s /home/user/iou2net.pl ./iou2net.pl
 
-In the ioustart.sh file you must to modified the line that specify the IOU to use, with the one you have.
+In the ioustart.sh file, you must to modified the line that specify the IOU to use, with the one you have.
 
 things to improve.
 	*test it more.
