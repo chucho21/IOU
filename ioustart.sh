@@ -11,14 +11,14 @@ do
 		if [ $VAR -eq $VAR 2> /dev/null ]
 		then
 			wrapper-linux -m i86bi_linux-adventerprisek9-ms-152-2-2-3T.bin -p $((7000 + $VAR)) -- $E $S $((1 * $VAR)) > /dev/null 2>&1 & echo $! > IOL$VAR.pid
-			echo "initialized " $VAR 
-			sleep 3s
+			echo "initialized " $VAR ", listening on port " $((7000 + $VAR))
+ 			sleep 1s
 		else
 			echo $VAR "is not a number"
 		fi
 	else
 		NUM=${VAR:1}
 		iou2net.pl -u $((30000 + $NUM)):$((30001 + $NUM)) - p $NUM > /dev/null 2>&1 & echo $! > IOL$NUM.pid
-		echo "initialized @" $NUM		
+		echo "initialized @" $NUM ", sending on port " $((30000 + $NUM)) ", listening on port " $((30001 + $NUM))		
 	fi
 done
